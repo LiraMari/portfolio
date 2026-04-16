@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mari — Portfólio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Satisfy&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream: #f5f0e8;
+      --paper: #ffffff;
+
+      --navy: #5A2A2A;
+      --red: #B94A6A;
+      --blue: #F4B400;
+      --teal: #F28C28;
+      --orange: #C75C7C;
+
+      --ink: #5A2A2A;
+      --muted: #8A6E6E;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--cream);
+      font-family: 'DM Sans', sans-serif;
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(58,110,168,0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(58,110,168,0.07) 1px, transparent 1px);
+      background-size: 28px 28px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .section {
+      padding: 5rem 0 3rem;
+      position: relative;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(245, 240, 232, 0.9);
+      backdrop-filter: blur(8px);
+      border-bottom: 0.5px solid rgba(90, 42, 42, 0.08);
+      padding: 0.75rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      font-family: 'Permanent Marker', cursive;
+      font-size: 1.1rem;
+      color: var(--navy);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--navy);
+    }
+
+    main {
+      padding-top: 56px;
+    }
+
+    .hr-scrap {
+      border: none;
+      height: 2px;
+      background: repeating-linear-gradient(
+        90deg,
+        var(--navy) 0,
+        var(--navy) 8px,
+        transparent 8px,
+        transparent 14px
+      );
+      opacity: 0.12;
+      margin: 0;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* CAPA */
+    #capa {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 4rem 0;
+    }
+
+    .capa-inner {
+      position: relative;
+      max-width: 680px;
+    }
+
+    .capa-eyebrow {
+      font-family: 'Satisfy', cursive;
+      font-size: 1.1rem;
+      color: var(--red);
+      margin-bottom: 1rem;
+      transform: rotate(-1deg);
+      display: inline-block;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .capa-name {
+      font-family: 'Permanent Marker', cursive;
+      font-size: clamp(3.5rem, 10vw, 7rem);
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.7s 0.1s ease both;
+    }
+
+    .capa-name span {
+      display: inline-block;
+      padding: 0 6px;
+      margin: 0 2px;
+      transform: rotate(-1.5deg);
+    }
+
+    .capa-name span:nth-child(odd) {
+      transform: rotate(1.5deg);
+      background: var(--navy);
+      color: white;
+    }
+
+    .capa-name span:nth-child(even) {
+      transform: rotate(-1.5deg);
+    }
+
+    .capa-name .c-red { background: var(--red); color: white; }
+    .capa-name .c-blue { background: var(--blue); color: var(--navy); }
+    .capa-name .c-teal { background: var(--teal); color: white; }
+    .capa-name .c-none { background: none; color: var(--navy); }
+
+    .capa-tagline {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 2.5rem;
+      animation: fadeUp 0.7s 0.2s ease both;
+      max-width: 580px;
+    }
+
+    .capa-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      animation: fadeUp 0.7s 0.3s ease both;
+      max-width: 580px;
+    }
+
+    .chip {
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 99px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .chip-navy { background: var(--navy); color: white; }
+    .chip-red { background: var(--red); color: white; }
+    .chip-blue { background: var(--blue); color: var(--navy); }
+    .chip-outline {
+      background: transparent;
+      border: 1.5px solid var(--navy);
+      color: var(--navy);
+    }
+
+    .tape {
+      position: absolute;
+      width: 60px;
+      height: 18px;
+      border-radius: 2px;
+      opacity: 0.55;
+      pointer-events: none;
+    }
+
+    .tape-blue { background: var(--blue); opacity: 0.3; }
+    .tape-red { background: var(--red); opacity: 0.25; }
+
+    .squiggle {
+      position: absolute;
+      font-family: 'Satisfy', cursive;
+      color: var(--red);
+      font-size: 2.5rem;
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    .scrap {
+      position: absolute;
+      pointer-events: none;
+    }
+
+    .newspaper-strip {
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(90, 42, 42, 0.08);
+      padding: 10px 14px;
+      font-size: 0.7rem;
+      color: var(--navy);
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      max-width: 170px;
+      box-shadow: 3px 4px 0 rgba(90, 42, 42, 0.08);
+      backdrop-filter: blur(2px);
+    }
+
+    /* TITULOS */
+    .section-heading {
+      font-family: 'Permanent Marker', cursive;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      color: var(--navy);
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .heading-box {
+      display: inline-block;
+      padding: 2px 10px;
+      transform: rotate(-1deg);
+    }
+
+    .hb-red { background: var(--red); color: white; }
+    .hb-blue { background: var(--blue); color: var(--navy); }
+    .hb-teal { background: var(--teal); color: white; }
+
+    /* BASE CARDS */
+    .paper-card,
+    .foto-card,
+    .skill-card,
+    .project-item,
+    .media-frame,
+    .contact-item,
+    .info-pill {
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(90, 42, 42, 0.08);
+      border-radius: 8px;
+      box-shadow: 4px 4px 0 rgba(90, 42, 42, 0.05);
+    }
+
+    /* SOBRE */
+    .sobre-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .sobre-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    .paper-card {
+      padding: 1.8rem;
+      position: relative;
+    }
+
+    .paper-card::before,
+    .foto-card::before {
+      content: '';
+      position: absolute;
+      top: -8px;
+      left: 18px;
+      width: 42px;
+      height: 12px;
+      border-radius: 2px;
+      transform: rotate(-4deg);
+    }
+
+    .paper-card::before {
+      background: rgba(244, 180, 0, 0.35);
+    }
+
+    .foto-card {
+      padding: 1rem;
+      position: relative;
+      text-align: center;
+    }
+
+    .foto-card::before {
+      background: rgba(185, 74, 106, 0.25);
+      transform: rotate(-5deg);
+    }
+
+    .paper-card p {
+      font-size: 1rem;
+      line-height: 1.85;
+      color: var(--ink);
+      font-weight: 300;
+    }
+
+    .paper-card p + p {
+      margin-top: 1rem;
+    }
+
+    .paper-card p em {
+      font-style: italic;
+      color: var(--navy);
+      font-weight: 500;
+    }
+
+    .profile-photo {
+      width: 100%;
+      height: 360px;
+      object-fit: cover;
+      object-position: center 22%;
+      border-radius: 8px;
+      display: block;
+      border: 1px solid rgba(90, 42, 42, 0.08);
+      background: rgba(231, 199, 207, 0.25);
+    }
+
+    .foto-legenda {
+      margin-top: 0.85rem;
+      font-size: 0.76rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .sobre-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.9rem;
+      width: 100%;
+    }
+
+    .info-pill {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 0.9rem;
+      width: 100%;
+      min-height: 100%;
+    }
+
+    .info-pill-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 0.3rem;
+    }
+
+    .info-pill p {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.35;
+    }
+
+    .info-pill span {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 4px;
+      line-height: 1.45;
+    }
+
+    /* HABILIDADES */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .skill-card {
+      padding: 1.5rem;
+      position: relative;
+    }
+
+    .skill-card-title {
+      font-family: 'Permanent Marker', cursive;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      display: inline-block;
+      padding: 2px 8px;
+      color: white;
+      transform: rotate(-0.5deg);
+    }
+
+    .skill-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .skill-list li {
+      font-size: 0.88rem;
+      color: var(--ink);
+      font-weight: 300;
+      padding-left: 14px;
+      position: relative;
+      line-height: 1.5;
+    }
+
+    .skill-list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--muted);
+      font-size: 0.7rem;
+      top: 3px;
+    }
+
+    /* PROJETOS */
+    .project-item {
+      padding: 2rem;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .project-number {
+      font-family: 'Permanent Marker', cursive;
+      font-size: 4rem;
+      color: rgba(90, 42, 42, 0.07);
+      position: absolute;
+      top: 1rem;
+      right: 1.5rem;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .project-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+
+    .project-tag {
+      font-size: 0.72rem;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 99px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .project-title {
+      font-family: 'Permanent Marker', cursive;
+      font-size: 1.8rem;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+      position: relative;
+      z-index: 1;
+      padding-right: 5rem;
+    }
+
+    .project-desc {
+      font-size: 0.92rem;
+      line-height: 1.75;
+      color: var(--ink);
+      font-weight: 300;
+      margin-bottom: 1.25rem;
+      max-width: 640px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .project-challenge {
+      background: rgba(244, 180, 0, 0.08);
+      border-left: 3px solid var(--red);
+      padding: 0.75rem 1rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+      border-radius: 0 6px 6px 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .project-challenge strong {
+      display: block;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--red);
+      margin-bottom: 3px;
+      font-weight: 500;
+    }
+
+    .deliverables {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 1.5rem;
+    }
+
+    .del-tag {
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 4px;
+      background: rgba(244, 180, 0, 0.08);
+      border: 1px solid rgba(90, 42, 42, 0.1);
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .project-media {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 0.4rem;
+    }
+
+    .media-frame {
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.96);
+    }
+
+    .media-link {
+      display: block;
+      text-decoration: none;
+      cursor: zoom-in;
+      background: #fff;
+    }
+
+    .media-link img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      background: #fff;
+      transition: transform 0.25s ease;
+    }
+
+    .media-link:hover img {
+      transform: scale(1.015);
+    }
+
+    .media-frame.hero .media-link {
+      padding: 1rem;
+    }
+
+    .media-frame.hero img {
+      max-height: 520px;
+      margin: 0 auto;
+      width: auto;
+      max-width: 100%;
+    }
+
+    .project-gallery-3,
+    .project-gallery-4,
+    .clg-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .project-gallery-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .project-gallery-4,
+    .clg-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .project-gallery-3 .media-link,
+    .project-gallery-4 .media-link,
+    .clg-grid .media-link {
+      padding: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+    }
+
+    .project-gallery-3 .media-link {
+      min-height: 260px;
+    }
+
+    .project-gallery-4 .media-link {
+      min-height: 320px;
+    }
+
+    .clg-grid .media-link {
+      min-height: 500px;
+    }
+
+    .project-gallery-3 .media-link img,
+    .project-gallery-4 .media-link img,
+    .clg-grid .media-link img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      margin: 0 auto;
+    }
+
+    .media-caption {
+      padding: 0.75rem 1rem 0.95rem;
+      font-size: 0.76rem;
+      color: var(--muted);
+      line-height: 1.45;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-top: 1px solid rgba(90, 42, 42, 0.06);
+      background: rgba(255,255,255,0.92);
+    }
+
+    /* LIGHTBOX */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(20, 12, 12, 0.88);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+      z-index: 9999;
+    }
+
+    .lightbox.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .lightbox-content {
+      position: relative;
+      max-width: min(1100px, 92vw);
+      max-height: 90vh;
+      width: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox-img {
+      max-width: 100%;
+      max-height: 90vh;
+      width: auto;
+      height: auto;
+      display: block;
+      border-radius: 10px;
+      background: #fff;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: -14px;
+      right: -14px;
+      width: 42px;
+      height: 42px;
+      border: none;
+      border-radius: 50%;
+      background: #fff;
+      color: var(--navy);
+      font-size: 1.4rem;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    }
+
+    /* ENCERRAMENTO */
+    #encerramento {
+      min-height: 60vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      padding: 5rem 0;
+    }
+
+    .enc-title {
+      font-family: 'Permanent Marker', cursive;
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      color: var(--navy);
+      margin-bottom: 1rem;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .enc-sub {
+      font-family: 'Satisfy', cursive;
+      font-size: 1.5rem;
+      color: var(--red);
+      margin-bottom: 2.5rem;
+    }
+
+    .contact-grid {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .contact-item {
+      padding: 0.75rem 1.25rem;
+      font-size: 0.85rem;
+      color: var(--ink);
+      min-width: 220px;
+    }
+
+    .contact-item span {
+      display: block;
+      font-size: 0.7rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 2px;
+    }
+
+    .contact-item a {
+      color: var(--navy);
+      text-decoration: none;
+      word-break: break-word;
+    }
+
+    .contact-item a:hover {
+      text-decoration: underline;
+    }
+
+    .enc-closing {
+      font-size: 0.8rem;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 900px) {
+      .project-gallery-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .project-gallery-4,
+      .clg-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-gallery-3 .media-link,
+      .project-gallery-4 .media-link,
+      .clg-grid .media-link {
+        min-height: unset;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .sobre-grid,
+      .skills-grid,
+      .sobre-cards {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        padding: 0.75rem 1rem;
+        gap: 1rem;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        gap: 1rem;
+      }
+
+      main {
+        padding-top: 90px;
+      }
+
+      .profile-photo {
+        height: 320px;
+      }
+
+      .project-title {
+        padding-right: 0;
+      }
+
+      .project-number {
+        position: static;
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .scrap {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        margin-top: 1rem;
+        transform: rotate(2deg) !important;
+      }
+
+      .squiggle {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        display: inline-block;
+        margin-top: 1rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .section {
+        padding: 3rem 0 2rem;
+      }
+
+      .page {
+        padding: 0 1rem;
+      }
+
+      .project-item,
+      .paper-card,
+      .skill-card,
+      .foto-card {
+        padding: 1.25rem;
+      }
+
+      .project-title {
+        font-size: 1.45rem;
+      }
+
+      .contact-item {
+        width: 100%;
+      }
+
+      .profile-photo {
+        height: 280px;
+        object-position: center 18%;
+      }
+
+      .capa-tagline {
+        letter-spacing: 0.04em;
+      }
+
+      .lightbox {
+        padding: 1rem;
+      }
+
+      .lightbox-close {
+        top: -10px;
+        right: -6px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <span class="nav-logo">Mari.</span>
+    <ul class="nav-links">
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#habilidades">Habilidades</a></li>
+      <li><a href="#projetos">Projetos</a></li>
+      <li><a href="#encerramento">Contato</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="page">
+
+      <!-- CAPA -->
+      <section id="capa" class="section">
+        <div class="capa-inner">
+          <div class="tape tape-blue" style="top:-10px;left:40px;transform:rotate(-2deg);"></div>
+
+          <p class="capa-eyebrow">✦ portfólio de design &amp; comunicação</p>
+
+          <h1 class="capa-name">
+            <span class="c-none">M</span><span class="c-red">a</span><span class="c-blue">r</span><span class="c-teal">i</span>
+          </h1>
+
+          <p class="capa-tagline">Design estratégico · Comunicação de marca · Marketing 360°</p>
+
+          <div class="capa-chips">
+            <span class="chip chip-navy">PDV &amp; Offline</span>
+            <span class="chip chip-red">Endomarketing</span>
+            <span class="chip chip-blue">Design</span>
+            <span class="chip chip-outline">Marketing</span>
+          </div>
+
+          <span class="squiggle" style="top:0.5rem; left:320px; transform:rotate(8deg);">~~~~~</span>
+
+          <div class="scrap" style="top:6.5rem; left:380px; transform:rotate(6deg); z-index:2;">
+            <div class="newspaper-strip">
+              design que resolve.<br />
+              comunicação que<br />
+              conecta.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="hr-scrap" />
+
+      <!-- SOBRE -->
+      <section id="sobre" class="section reveal">
+        <h2 class="section-heading">
+          <span class="heading-box hb-blue">sobre</span> mim
+        </h2>
+
+        <div class="sobre-content">
+          <div class="sobre-grid">
+            <div class="sobre-left">
+              <div class="paper-card">
+                <p>
+                  Trabalho no cruzamento entre design e estratégia de comunicação.
+                  Antes de abrir qualquer arquivo, a primeira pergunta é:
+                  <em>o que essa peça precisa fazer?</em>
+                </p>
+
+                <p>
+                  Já passei por lançamentos de produto, endomarketing,
+                  posicionamento de liderança e comunicação de marca —
+                  sempre com atenção ao contexto, ao público e à mensagem
+                  que cada peça precisa transmitir.
+                </p>
+              </div>
+            </div>
+
+            <div class="sobre-right">
+              <div class="foto-card">
+                <img
+                  class="profile-photo"
+                  src="mariana-foto.jpg"
+                  alt="Foto de Mariana"
+                />
+                <p class="foto-legenda">Oie, sou a Mari :)</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="sobre-cards">
+            <div class="info-pill">
+              <div class="info-pill-dot" style="background:var(--navy);"></div>
+              <div>
+                <p>Marketing 360°</p>
+                <span>Do briefing à entrega final</span>
+              </div>
+            </div>
+
+            <div class="info-pill">
+              <div class="info-pill-dot" style="background:var(--red);"></div>
+              <div>
+                <p>Comunicação online e offline</p>
+                <span>PDV, redes sociais, eventos e endomarketing</span>
+              </div>
+            </div>
+
+            <div class="info-pill">
+              <div class="info-pill-dot" style="background:var(--blue);"></div>
+              <div>
+                <p>Estratégia de marca</p>
+                <span>Posicionamento, narrativa e consistência visual</span>
+              </div>
+            </div>
+
+            <div class="info-pill">
+              <div class="info-pill-dot" style="background:var(--teal);"></div>
+              <div>
+                <p>Adaptação de linguagem</p>
+                <span>Diferentes públicos, diferentes tons</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="hr-scrap" />
+
+      <!-- HABILIDADES -->
+      <section id="habilidades" class="section reveal">
+        <h2 class="section-heading">
+          <span class="heading-box hb-red">habilidades</span>
+        </h2>
+
+        <div class="skills-grid">
+          <div class="skill-card">
+            <p class="skill-card-title" style="background:var(--navy);">Design</p>
+            <ul class="skill-list">
+              <li>Layout &amp; composição</li>
+              <li>Design de PDV e materiais impressos</li>
+              <li>Social media design</li>
+              <li>Apresentações e campanhas</li>
+            </ul>
+          </div>
+
+          <div class="skill-card" style="transform:rotate(0.5deg);">
+            <p class="skill-card-title" style="background:var(--red);">Estratégia</p>
+            <ul class="skill-list">
+              <li>Estratégia de comunicação</li>
+              <li>Tom de voz &amp; narrativa de marca</li>
+              <li>Endomarketing</li>
+              <li>Briefing e conceito criativo</li>
+              <li>Personal branding executivo</li>
+              <li>Consistência de marca</li>
+            </ul>
+          </div>
+
+          <div class="skill-card" style="transform:rotate(-0.3deg);">
+            <p class="skill-card-title" style="background:var(--blue); color: var(--navy);">Ferramentas</p>
+            <ul class="skill-list">
+              <li>Adobe Illustrator</li>
+              <li>Adobe Photoshop</li>
+              <li>Canva Pro</li>
+              <li>Figma</li>
+            </ul>
+          </div>
+
+          <div class="skill-card" style="transform:rotate(0.3deg);">
+            <p class="skill-card-title" style="background:var(--teal);">Contextos</p>
+            <ul class="skill-list">
+              <li>Campanhas de lançamento</li>
+              <li>Comunicação interna</li>
+              <li>Presença digital de liderança</li>
+              <li>Eventos corporativos</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <hr class="hr-scrap" />
+
+      <!-- PROJETOS -->
+      <section id="projetos" class="section">
+        <h2 class="section-heading">
+          meus <span class="heading-box hb-teal">projetos</span>
+        </h2>
+
+        <!-- PROJETO 1 -->
+        <div class="project-item reveal" style="transform:rotate(-0.3deg);">
+          <div class="project-number">01</div>
+
+          <div class="project-meta">
+            <span class="project-tag" style="background:var(--navy);color:white;">Externo</span>
+            <span class="project-tag" style="background:rgba(244,180,0,0.08);color:var(--muted);border:1px solid rgba(90,42,42,0.1);">PDV · Lançamento</span>
+          </div>
+
+          <h3 class="project-title">Foton — Nova Tunland</h3>
+
+          <div class="project-challenge">
+            <strong>Desafio estratégico</strong>
+            Traduzir um posicionamento premium em materiais físicos de PDV — mantendo coerência visual em formatos diferentes, do backdrop ao outdoor e aos banners de concessionária.
+          </div>
+
+          <p class="project-desc">
+            A Nova Tunland entrou no mercado com um diferencial claro: tamanho. O briefing pedia que a comunicação fizesse isso sentir — não só informar. Isso exigiu uma estética mais densa, com tons escuros, apelo aspiracional e presença de marca consistente em diferentes formatos físicos. Fui responsável pelo desdobramento visual das peças, garantindo leitura forte em todos os pontos de contato.
+          </p>
+
+          <div class="deliverables">
+            <span class="del-tag">Backdrop</span>
+            <span class="del-tag">Outdoor</span>
+            <span class="del-tag">Banners</span>
+            <span class="del-tag">Peças de concessionária</span>
+            <span class="del-tag">Campanha visual</span>
+          </div>
+
+          <div class="project-media">
+            <div class="media-frame hero">
+              <a href="foton-tunland-evento.png" class="media-link lightbox-trigger">
+                <img src="foton-tunland-evento.png" alt="Backdrop da campanha Nova Tunland em concessionária" />
+              </a>
+              <div class="media-caption">Aplicação principal da campanha no espaço de evento</div>
+            </div>
+
+            <div class="project-gallery-3">
+              <div class="media-frame">
+                <a href="foton-tunland-banner.png" class="media-link lightbox-trigger">
+                  <img src="foton-tunland-banner.png" alt="Banners verticais da campanha Nova Tunland" />
+                </a>
+                <div class="media-caption">Banners verticais</div>
+              </div>
+
+              <div class="media-frame">
+                <a href="foton-tunland-outdoor-1.png" class="media-link lightbox-trigger">
+                  <img src="foton-tunland-outdoor-1.png" alt="Outdoor da campanha Nova Tunland versão 1" />
+                </a>
+                <div class="media-caption">Outdoor 1</div>
+              </div>
+
+              <div class="media-frame">
+                <a href="foton-tunland-outdoor-2.png" class="media-link lightbox-trigger">
+                  <img src="foton-tunland-outdoor-2.png" alt="Outdoor da campanha Nova Tunland versão 2" />
+                </a>
+                <div class="media-caption">Outdoor 2</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJETO 2 -->
+        <div class="project-item reveal" style="transform:rotate(0.2deg);">
+          <div class="project-number">02</div>
+
+          <div class="project-meta">
+            <span class="project-tag" style="background:var(--teal);color:white;">Interno</span>
+            <span class="project-tag" style="background:rgba(244,180,0,0.08);color:var(--muted);border:1px solid rgba(90,42,42,0.1);">Endomarketing · Marca</span>
+          </div>
+
+          <h3 class="project-title">Ninecon — Comunicação Interna</h3>
+
+          <div class="project-challenge">
+            <strong>Desafio estratégico</strong>
+            Evoluir a linguagem visual e editorial da empresa — tornando a comunicação interna mais moderna, mais humana e mais conectada aos diferentes momentos da cultura da marca.
+          </div>
+
+          <p class="project-desc">
+            Em comunicação interna, a execução técnica é o mínimo. O que realmente importa é entender o contexto, o público e a intenção de cada peça. Neste projeto, atuei em desdobramentos visuais para programas, campanhas internas e presença institucional, buscando equilíbrio entre consistência de marca e variedade de linguagem.
+          </p>
+
+          <div class="deliverables">
+            <span class="del-tag">Programas internos</span>
+            <span class="del-tag">Campanhas de cultura</span>
+            <span class="del-tag">Peças institucionais</span>
+            <span class="del-tag">Instagram</span>
+            <span class="del-tag">Comunicação interna</span>
+          </div>
+
+          <div class="project-media">
+            <div class="project-gallery-4">
+              <div class="media-frame">
+                <a href="ninecon-aprender.png" class="media-link lightbox-trigger">
+                  <img src="ninecon-aprender.png" alt="Peça do programa Aprender e Ensinar da Ninecon" />
+                </a>
+                <div class="media-caption">Programa aprender e ensinar</div>
+              </div>
+
+              <div class="media-frame">
+                <a href="ninecon-lideranca.png" class="media-link lightbox-trigger">
+                  <img src="ninecon-lideranca.png" alt="Peça do programa de líderes da Ninecon" />
+                </a>
+                <div class="media-caption">Programa de líderes</div>
+              </div>
+
+              <div class="media-frame">
+                <a href="ninecon-geral-instagram.jpeg" class="media-link lightbox-trigger">
+                  <img src="ninecon-geral-instagram.jpeg" alt="Visão geral do Instagram da Ninecon" />
+                </a>
+                <div class="media-caption">Presença institucional no Instagram</div>
+              </div>
+
+              <div class="media-frame">
+                <a href="ninecon-criancas.png" class="media-link lightbox-trigger">
+                  <img src="ninecon-criancas.png" alt="Campanha Pequenos Artistas Ninecon" />
+                </a>
+                <div class="media-caption">Campanha com linguagem mais afetiva e humanizada</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJETO 3 -->
+        <div class="project-item reveal" style="transform:rotate(-0.2deg);">
+          <div class="project-number">03</div>
+
+          <div class="project-meta">
+            <span class="project-tag" style="background:var(--blue);color:var(--navy);">Digital</span>
+            <span class="project-tag" style="background:rgba(244,180,0,0.08);color:var(--muted);border:1px solid rgba(90,42,42,0.1);">Personal Branding</span>
+          </div>
+
+          <h3 class="project-title">CLG — Posicionamento Digital</h3>
+
+          <div class="project-challenge">
+            <strong>Desafio estratégico</strong>
+            Criar presença visual para diferentes lideranças, respeitando a individualidade de cada perfil sem perder o fio condutor da marca corporativa.
+          </div>
+
+          <p class="project-desc">
+            Posicionamento digital de liderança exige equilíbrio: autoridade sem distância, humanização sem perder credibilidade. Trabalhei no apoio visual e editorial de diferentes perfis, adaptando linguagem, identidade e recortes de conteúdo para públicos distintos. O desafio aqui era fazer com que cada perfil tivesse personalidade própria — e ainda assim conversasse com o ecossistema da marca.
+          </p>
+
+          <div class="deliverables">
+            <span class="del-tag">Perfis executivos</span>
+            <span class="del-tag">Grid de conteúdo</span>
+            <span class="del-tag">Identidade por perfil</span>
+            <span class="del-tag">Narrativa visual</span>
+          </div>
+
+          <div class="project-media">
+            <div class="clg-grid">
+              <div class="media-frame">
+                <a href="clg-bruno.jpeg" class="media-link lightbox-trigger">
+                  <img src="clg-bruno.jpeg" alt="Perfil e grid de conteúdo de Bruno Viscaino" />
+                </a>
+                <div class="media-caption">Bruno Viscaino</div>
+              </div>
+
+              <div class="media-frame">
+                <a href="clg-lucas.jpeg" class="media-link lightbox-trigger">
+                  <img src="clg-lucas.jpeg" alt="Perfil e grid de conteúdo de Lucas Andrade Ferreira" />
+                </a>
+                <div class="media-caption">Lucas Andrade Ferreira</div>
+              </div>
+
+              <div class="media-frame">
+                <a href="clg-ana.jpeg" class="media-link lightbox-trigger">
+                  <img src="clg-ana.jpeg" alt="Perfil e grid de conteúdo de Ana Cristina Backer" />
+                </a>
+                <div class="media-caption">Ana Cristina Backer</div>
+              </div>
+
+              <div class="media-frame">
+                <a href="clg-assad.jpeg" class="media-link lightbox-trigger">
+                  <img src="clg-assad.jpeg" alt="Perfil e grid de conteúdo de Andre Assad" />
+                </a>
+                <div class="media-caption">Andre Assad</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="hr-scrap" />
+
+      <!-- ENCERRAMENTO -->
+      <section id="encerramento" class="section reveal">
+        <div class="enc-title">
+          <span style="display:inline-block;padding:2px 8px;background:var(--red);color:white;transform:rotate(-2deg);">o</span>
+          <span style="display:inline-block;padding:2px 8px;background:var(--navy);color:white;transform:rotate(1deg);">b</span>
+          <span style="display:inline-block;padding:2px 8px;background:var(--blue);color:var(--navy);transform:rotate(-1deg);">r</span>
+          <span style="display:inline-block;padding:2px 8px;background:var(--teal);color:white;transform:rotate(2deg);">i</span>
+          <span style="display:inline-block;padding:2px 8px;background:var(--orange);color:white;transform:rotate(-1.5deg);">g</span>
+          <span style="display:inline-block;padding:2px 8px;background:var(--navy);color:white;transform:rotate(1.5deg);">a</span>
+          <span style="display:inline-block;padding:2px 8px;background:var(--red);color:white;transform:rotate(-1deg);">d</span>
+          <span style="display:inline-block;padding:2px 8px;background:var(--blue);color:var(--navy);transform:rotate(2deg);">a</span>
+        </div>
+
+        <p class="enc-sub">Vamos criar algo juntos?</p>
+
+        <div class="contact-grid">
+          <div class="contact-item">
+            <span>E-mail</span>
+            <a href="mailto:Lima.mariana.2001@gmail.com">Lima.mariana.2001@gmail.com</a>
+          </div>
+
+          <div class="contact-item">
+            <span>LinkedIn</span>
+            <a href="https://www.linkedin.com/in/mariana-lima-de-lira/" target="_blank" rel="noopener noreferrer">
+              linkedin.com/in/mariana-lima-de-lira
+            </a>
+          </div>
+
+          <div class="contact-item">
+            <span>WhatsApp</span>
+            <a href="https://wa.me/5511945379199" target="_blank" rel="noopener noreferrer">
+              (11) 94537-9199
+            </a>
+          </div>
+        </div>
+
+        <p class="enc-closing">Design que resolve · Comunicação que conecta</p>
+      </section>
+
+    </div>
+  </main>
+
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Fechar imagem">×</button>
+      <img class="lightbox-img" id="lightboxImg" src="" alt="" />
+    </div>
+  </div>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    reveals.forEach((el) => observer.observe(el));
+
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxClose = document.getElementById('lightboxClose');
+    const triggers = document.querySelectorAll('.lightbox-trigger');
+
+    triggers.forEach((trigger) => {
+      trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        const img = trigger.querySelector('img');
+        const fullSrc = trigger.getAttribute('href');
+
+        lightboxImg.src = fullSrc;
+        lightboxImg.alt = img ? img.alt : '';
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      lightboxImg.src = '';
+      document.body.style.overflow = '';
+    }
+
+    lightboxClose.addEventListener('click', closeLightbox);
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+        closeLightbox();
+      }
+    });
+  </script>
+
+</body>
+</html>
