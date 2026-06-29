@@ -218,34 +218,6 @@
     .chip-teal { background: var(--teal); color: white; }
     .chip-outline { background: transparent; border: 1.5px solid var(--navy); color: var(--navy); }
 
-    .tape { position: absolute; width: 60px; height: 18px; border-radius: 2px; opacity: 0.55; pointer-events: none; }
-    .tape-blue { background: var(--blue); opacity: 0.3; }
-    .tape-red { background: var(--red); opacity: 0.25; }
-
-    .squiggle {
-      position: absolute;
-      font-family: 'Satisfy', cursive;
-      color: var(--red);
-      font-size: 2.5rem;
-      opacity: 0.5;
-      pointer-events: none;
-    }
-
-    .scrap { position: absolute; pointer-events: none; }
-
-    .newspaper-strip {
-      background: rgba(255, 255, 255, 0.78);
-      border: 1px solid rgba(90, 42, 42, 0.08);
-      padding: 10px 14px;
-      font-size: 0.7rem;
-      color: var(--navy);
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      max-width: 170px;
-      box-shadow: 3px 4px 0 rgba(90, 42, 42, 0.08);
-      backdrop-filter: blur(2px);
-    }
-
     /* TÍTULOS */
     .section-heading {
       font-family: 'Permanent Marker', cursive;
@@ -432,7 +404,6 @@
       color: var(--ink);
       font-weight: 300;
       margin-bottom: 1.25rem;
-      
       position: relative;
       z-index: 1;
     }
@@ -458,6 +429,50 @@
       color: var(--red);
       margin-bottom: 3px;
       font-weight: 500;
+    }
+
+    /* MÉTRICAS */
+    .metrics-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 10px;
+      margin: 1.25rem 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .metric-box {
+      background: rgba(255,255,255,0.7);
+      border: 1px solid rgba(90,42,42,0.08);
+      border-radius: 8px;
+      padding: 0.85rem 1rem;
+      text-align: center;
+    }
+
+    .metric-value {
+      font-family: 'Permanent Marker', cursive;
+      font-size: 1.6rem;
+      color: var(--navy);
+      line-height: 1.1;
+      display: block;
+    }
+
+    .metric-label {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-top: 4px;
+      display: block;
+      line-height: 1.4;
+    }
+
+    .metric-delta {
+      font-size: 0.72rem;
+      color: #2a7a55;
+      font-weight: 500;
+      display: block;
+      margin-top: 2px;
     }
 
     .deliverables { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.5rem; }
@@ -511,12 +526,45 @@
     }
 
     .pdf-icon svg { width: 15px; height: 15px; fill: white; }
-
     .pdf-btn-label { display: flex; flex-direction: column; gap: 1px; }
-    .pdf-btn-label span { font-size: 0.68rem; color: var(--muted); font-weight: 400; text-transform: none; letter-spacing: 0.02em; line-height: 1.4; }
+    .pdf-btn-label span { font-size: 0.68rem; color: var(--muted); font-weight: 400; line-height: 1.4; }
+
+    /* LINK BTN */
+    .link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.95);
+      border: 1.5px solid rgba(90, 42, 42, 0.15);
+      color: var(--navy);
+      font-size: 0.82rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.18s, border-color 0.18s, transform 0.15s;
+      box-shadow: 3px 3px 0 rgba(90,42,42,0.06);
+    }
+
+    .link-btn:hover {
+      background: var(--cream);
+      border-color: var(--red);
+      transform: translateY(-1px);
+    }
+
+    .link-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 0.9rem;
+    }
 
     /* MEDIAS */
-    .project-media { display: flex; flex-direction: column; gap: 1rem; margin-top: 0.4rem; }
+    .project-media { display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem; }
 
     .media-frame { overflow: hidden; background: rgba(255, 255, 255, 0.96); }
 
@@ -547,30 +595,24 @@
       max-width: 100%;
     }
 
-    .project-gallery-3,
-    .project-gallery-4,
-    .clg-grid { display: grid; gap: 1rem; }
+    .project-gallery-2,
+    .project-gallery-3 { display: grid; gap: 1rem; }
 
+    .project-gallery-2 { grid-template-columns: repeat(2, 1fr); }
     .project-gallery-3 { grid-template-columns: repeat(3, 1fr); }
-    .project-gallery-4, .clg-grid { grid-template-columns: repeat(2, 1fr); }
 
-    .project-gallery-3 .media-link,
-    .project-gallery-4 .media-link,
-    .clg-grid .media-link {
+    .project-gallery-2 .media-link,
+    .project-gallery-3 .media-link {
       padding: 0.75rem;
       display: flex;
       align-items: center;
       justify-content: center;
       background: #fff;
+      min-height: 220px;
     }
 
-    .project-gallery-3 .media-link { min-height: 260px; }
-    .project-gallery-4 .media-link { min-height: 320px; }
-    .clg-grid .media-link { min-height: 500px; }
-
-    .project-gallery-3 .media-link img,
-    .project-gallery-4 .media-link img,
-    .clg-grid .media-link img {
+    .project-gallery-2 .media-link img,
+    .project-gallery-3 .media-link img {
       max-width: 100%;
       max-height: 100%;
       width: auto;
@@ -589,54 +631,42 @@
       background: rgba(255,255,255,0.92);
     }
 
-    /* ANTES/DEPOIS INSTAGRAM */
-    .insta-metrics {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      margin-bottom: 1.25rem;
-    }
+    /* PODCAST */
+    .podcast-episodes { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1rem; }
 
-    .insta-metric {
-      background: rgba(255,255,255,0.7);
+    .podcast-ep {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: rgba(255,255,255,0.8);
       border: 1px solid rgba(90,42,42,0.08);
       border-radius: 8px;
       padding: 0.85rem 1rem;
+      text-decoration: none;
+      color: var(--ink);
+      transition: border-color 0.2s, transform 0.15s;
     }
 
-    .insta-metric-label {
-      font-size: 0.68rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--muted);
-      margin-bottom: 5px;
+    .podcast-ep:hover {
+      border-color: var(--red);
+      transform: translateY(-1px);
     }
 
-    .insta-metric-values {
-      display: flex;
-      align-items: baseline;
-      gap: 6px;
-      flex-wrap: wrap;
+    .podcast-thumb {
+      width: 56px;
+      height: 56px;
+      border-radius: 6px;
+      object-fit: cover;
+      flex-shrink: 0;
+      background: rgba(231,199,207,0.3);
     }
 
-    .insta-before {
-      font-size: 0.8rem;
-      color: var(--muted);
-      text-decoration: line-through;
-    }
+    .podcast-ep-info { flex: 1; }
+    .podcast-ep-title { font-size: 0.88rem; font-weight: 500; color: var(--navy); margin-bottom: 3px; }
+    .podcast-ep-meta { font-size: 0.75rem; color: var(--muted); }
+    .podcast-ep-views { font-size: 0.75rem; color: var(--red); font-weight: 500; margin-left: auto; white-space: nowrap; }
 
-    .insta-after {
-      font-family: 'Permanent Marker', cursive;
-      font-size: 1.4rem;
-      color: var(--navy);
-    }
-
-    .insta-delta {
-      font-size: 0.72rem;
-      color: #2a7a55;
-      font-weight: 500;
-    }
-
+    /* ANTES/DEPOIS */
     .insta-compare {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -686,32 +716,6 @@
 
     .insta-screen a:hover img { transform: scale(1.02); }
 
-    .insta-qualities {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-      margin-top: 0.75rem;
-    }
-
-    .insta-quality {
-      background: rgba(42,122,85,0.05);
-      border: 1px solid rgba(42,122,85,0.14);
-      border-radius: 6px;
-      padding: 0.6rem 0.85rem;
-      font-size: 0.82rem;
-      color: var(--muted);
-      display: flex;
-      align-items: flex-start;
-      gap: 7px;
-    }
-
-    .insta-quality::before {
-      content: '✓';
-      color: #2a7a55;
-      font-weight: 600;
-      flex-shrink: 0;
-    }
-
     /* LIGHTBOX */
     .lightbox {
       position: fixed;
@@ -733,7 +737,6 @@
       position: relative;
       max-width: min(1100px, 92vw);
       max-height: 90vh;
-      width: auto;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -742,8 +745,6 @@
     .lightbox-img {
       max-width: 100%;
       max-height: 90vh;
-      width: auto;
-      height: auto;
       display: block;
       border-radius: 10px;
       background: #fff;
@@ -784,8 +785,6 @@
       gap: 6px;
     }
 
-    .enc-sub { font-family: 'Satisfy', cursive; font-size: 1.5rem; color: var(--red); margin-bottom: 2.5rem; }
-
     .contact-grid {
       display: flex;
       justify-content: center;
@@ -799,27 +798,31 @@
     .contact-item a { color: var(--navy); text-decoration: none; word-break: break-word; }
     .contact-item a:hover { text-decoration: underline; }
 
-    .enc-closing { font-size: 0.8rem; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; }
+    /* LABEL SEÇÃO */
+    .section-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--red);
+      font-weight: 500;
+      display: block;
+      margin-bottom: 4px;
+    }
 
     @media (max-width: 900px) {
-      .project-gallery-3, .project-gallery-4, .clg-grid { grid-template-columns: 1fr; }
-      .project-gallery-3 .media-link, .project-gallery-4 .media-link, .clg-grid .media-link { min-height: unset; }
+      .project-gallery-3 { grid-template-columns: 1fr; }
       .insta-compare { grid-template-columns: 1fr; }
-      .insta-screen a img { height: 360px; }
     }
 
     @media (max-width: 768px) {
-      .sobre-grid, .skills-grid, .sobre-cards { grid-template-columns: 1fr; }
+      .sobre-grid, .skills-grid, .sobre-cards, .project-gallery-2 { grid-template-columns: 1fr; }
       nav { padding: 0.75rem 1rem; gap: 1rem; align-items: flex-start; flex-direction: column; }
       .nav-links { gap: 1rem; }
       main { padding-top: 90px; }
       .profile-photo { height: 320px; }
       .project-title { padding-right: 0; }
       .project-number { position: static; display: block; margin-bottom: 0.5rem; }
-      .scrap { position: relative !important; top: auto !important; left: auto !important; right: auto !important; margin-top: 1rem; transform: rotate(2deg) !important; }
-      .squiggle { position: relative !important; top: auto !important; left: auto !important; display: inline-block; margin-top: 1rem; }
-      .insta-metrics { grid-template-columns: 1fr 1fr; }
-      .insta-qualities { grid-template-columns: 1fr; }
+      .metrics-row { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (max-width: 640px) {
@@ -828,13 +831,12 @@
       .project-item, .paper-card, .skill-card, .foto-card { padding: 1.25rem; }
       .project-title { font-size: 1.45rem; }
       .contact-item { width: 100%; }
-      .profile-photo { height: 280px; object-position: center 18%; }
-      .capa-tagline { letter-spacing: 0.04em; }
+      .profile-photo { height: 280px; }
       .lightbox { padding: 1rem; }
       .lightbox-close { top: -10px; right: -6px; }
       .pdf-buttons { flex-direction: column; }
       .pdf-btn { width: 100%; }
-      .insta-metrics { grid-template-columns: 1fr; }
+      .metrics-row { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
@@ -856,9 +858,7 @@
       <!-- CAPA -->
       <section id="capa" class="section">
         <div class="capa-inner">
-          <div class="tape tape-blue" style="top:-10px;left:40px;transform:rotate(-2deg);"></div>
-
-          <p class="capa-eyebrow">✦ portfólio de design &amp; comunicação</p>
+          <p class="capa-eyebrow">✦ portfólio de marketing & comunicação</p>
 
           <h1 class="capa-name">
             <span class="c-none">M</span><span class="c-red">a</span><span class="c-blue">r</span><span class="c-teal">i</span>
@@ -868,13 +868,13 @@
 
           <div class="capa-chips">
             <span class="chip chip-navy">Eventos</span>
-            <span class="chip chip-red">Endomarketing</span>
-            <span class="chip chip-blue">Design</span>
-            <span class="chip chip-teal">Comunicação</span>
+            <span class="chip chip-red">Comunicação Interna</span>
+            <span class="chip chip-blue">Employer Branding</span>
+            <span class="chip chip-teal">Thought Leadership</span>
+            <span class="chip chip-outline">Redes Sociais</span>
           </div>
 
           <p class="capa-scroll">Veja alguns dos meus projetos ↓</p>
-
         </div>
       </section>
 
@@ -891,24 +891,20 @@
             <div class="sobre-left">
               <div class="paper-card">
                 <p>
-                  Comecei minha carreira em experiências administrativas e de atendimento — foi ali que entendi que comunicação é, antes de tudo, sobre as pessoas do outro lado. Isso me trouxe pro marketing, e nunca saiu de mim.
+                  Comecei minha carreira em experiências administrativas e de atendimento, foi ali que entendi que comunicação é, antes de tudo, sobre as pessoas do outro lado. Isso me trouxe pro marketing, e nunca saiu de mim.
                 </p>
                 <p>
-                  Hoje trabalho com eventos, endomarketing e comunicação. O que me move é fazer as pessoas sentirem que existe alguém real por trás. Seja num post, num email ou num evento, a pergunta é sempre a mesma: <em>quem vai receber isso e o que quero que ela sinta?</em>
+                  Hoje trabalho com eventos, comunicação interna e employer branding. O que me move é fazer as pessoas sentirem que existe alguém real por trás. Seja num evento, num podcast ou numa campanha interna, a pergunta é sempre a mesma: <em>quem vai receber isso e o que quero que ela sinta?</em>
                 </p>
                 <p>
-                  Já passei por endomarketing, redes sociais, posicionamento de liderança e organização de eventos corporativos. Em todos esses contextos, tirei a comunicação do automático e devolvi personalidade pra ela.
+                  Já liderei encontros presenciais para times remotos, criei podcasts do zero, reposicionei marcas e construí a autoridade digital de executivos. Em todos esses contextos, tirei a comunicação do automático e devolvi personalidade pra ela.
                 </p>
               </div>
             </div>
 
             <div class="sobre-right">
               <div class="foto-card">
-                <img
-                  class="profile-photo"
-                  src="mariana-foto.jpg"
-                  alt="Foto de Mariana"
-                />
+                <img class="profile-photo" src="mariana-foto.jpg" alt="Foto de Mariana" />
                 <p class="foto-legenda" style="font-family:'Satisfy',cursive;font-size:1rem;text-transform:none;letter-spacing:0;">Oie, sou a Mari :)</p>
               </div>
             </div>
@@ -919,31 +915,28 @@
               <div class="info-pill-dot" style="background:var(--navy);"></div>
               <div>
                 <p>Eventos corporativos</p>
-                <span>Concepção, execução e experiência</span>
+                <span>Concepção, execução e experiência do participante</span>
               </div>
             </div>
-
             <div class="info-pill">
               <div class="info-pill-dot" style="background:var(--red);"></div>
               <div>
-                <p>Comunicação</p>
-                <span>Endomarketing, redes e campanhas</span>
+                <p>Comunicação Interna</p>
+                <span>Endomarketing, campanhas e cultura organizacional</span>
               </div>
             </div>
-
             <div class="info-pill">
               <div class="info-pill-dot" style="background:var(--blue);"></div>
               <div>
-                <p>Identidade visual</p>
-                <span>KV, feed, apresentações e materiais de evento</span>
+                <p>Employer Branding</p>
+                <span>Podcast, conteúdo e marca empregadora</span>
               </div>
             </div>
-
             <div class="info-pill">
               <div class="info-pill-dot" style="background:var(--teal);"></div>
               <div>
-                <p>Estratégia</p>
-                <span>Estratégia e execução no mesmo pacote</span>
+                <p>Thought Leadership</p>
+                <span>Posicionamento digital de executivos</span>
               </div>
             </div>
           </div>
@@ -960,23 +953,23 @@
 
         <div class="skills-grid">
           <div class="skill-card">
-            <p class="skill-card-title" style="background:var(--navy);">Design</p>
+            <p class="skill-card-title" style="background:var(--navy);">Eventos</p>
             <ul class="skill-list">
-              <li>Layout &amp; composição</li>
-              <li>Social media design</li>
-              <li>Apresentações e campanhas</li>
+              <li>Concepção e planejamento estratégico</li>
+              <li>Curadoria de dinâmicas e experiência</li>
+              <li>Gestão de fornecedores e orçamento</li>
               <li>Identidade visual de eventos</li>
-              <li>Design de PDV e materiais impressos</li>
+              <li>Execução e gestão de crise</li>
             </ul>
           </div>
 
           <div class="skill-card" style="transform:rotate(0.5deg);">
-            <p class="skill-card-title" style="background:var(--red);">Estratégia</p>
+            <p class="skill-card-title" style="background:var(--red);">Comunicação</p>
             <ul class="skill-list">
-              <li>Estratégia de comunicação</li>
-              <li>Tom de voz &amp; narrativa de marca</li>
-              <li>Endomarketing</li>
-              <li>Briefing e conceito criativo</li>
+              <li>Estratégia de comunicação interna</li>
+              <li>Endomarketing e campanhas de cultura</li>
+              <li>Tom de voz e narrativa de marca</li>
+              <li>Employer branding e podcast</li>
               <li>Thought leadership executivo</li>
             </ul>
           </div>
@@ -984,22 +977,22 @@
           <div class="skill-card" style="transform:rotate(-0.3deg);">
             <p class="skill-card-title" style="background:var(--blue); color: var(--navy);">Ferramentas</p>
             <ul class="skill-list">
-              <li>Adobe Illustrator &amp; Photoshop</li>
-              <li>Canva Pro</li>
-              <li>Figma</li>
-              <li>Mlabs &amp; Reportei</li>
+              <li>Adobe Illustrator & Photoshop</li>
+              <li>Canva Pro & Figma</li>
+              <li>Mlabs & Reportei</li>
               <li>Asana</li>
+              <li>Claude Code</li>
             </ul>
           </div>
 
           <div class="skill-card" style="transform:rotate(0.3deg);">
-            <p class="skill-card-title" style="background:var(--teal);">Eventos</p>
+            <p class="skill-card-title" style="background:var(--teal);">Design</p>
             <ul class="skill-list">
-              <li>Concepção e curadoria de dinâmicas</li>
-              <li>Identidade visual de eventos</li>
-              <li>Gestão de fornecedores</li>
-              <li>Controle financeiro</li>
-              <li>Experiência do participante</li>
+              <li>Layout & composição</li>
+              <li>Identidade visual e KV</li>
+              <li>Materiais de evento</li>
+              <li>Social media design</li>
+              <li>Apresentações e campanhas</li>
             </ul>
           </div>
         </div>
@@ -1013,7 +1006,7 @@
           meus <span class="heading-box hb-teal">projetos</span>
         </h2>
 
-        <!-- PROJETO 01 — EVENTOS -->
+        <!-- PROJETO 01 — ENCONTRO DE LÍDERES -->
         <div class="project-item reveal" style="transform:rotate(-0.3deg);">
           <div class="project-number">01</div>
 
@@ -1024,39 +1017,58 @@
 
           <h3 class="project-title">Encontro de Líderes — Ninecon</h3>
 
+          <div class="metrics-row">
+            <div class="metric-box">
+              <span class="metric-value">3</span>
+              <span class="metric-label">edições realizadas</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-value">80–100</span>
+              <span class="metric-label">líderes por edição</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-value">9,6</span>
+              <span class="metric-label">nota média nas avaliações pós-evento</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-value">+R$30k</span>
+              <span class="metric-label">orçamento gerenciado por edição</span>
+            </div>
+          </div>
+
           <div class="project-challenge">
-            <strong>Ideia</strong>
-            O dia inteiro era de apresentações. Funcionava. Mas pra um time remoto que raramente se encontra, funcionar não era suficiente.
+            <strong>O ponto de partida</strong>
+            O dia inteiro era de apresentações. Funcionava. Mas pra um time remoto que raramente se encontra presencialmente, funcionar não era suficiente.
           </div>
 
           <p class="project-desc">
-            <strong style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--red);font-weight:500;display:block;margin-bottom:4px;">Objetivo</strong>
-            Criar um encontro presencial que fosse além do alinhamento estratégico, gerando conexão real entre as lideranças de um time que trabalha 100% remoto.
+            <span class="section-label">Objetivo</span>
+            Criar um encontro presencial que fosse além do alinhamento estratégico — gerando conexão real entre as lideranças de um time que trabalha 100% remoto.
           </p>
 
           <p class="project-desc">
-            <strong style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--red);font-weight:500;display:block;margin-bottom:4px;">Processo</strong>
-            Começo sempre pelo mesmo lugar: quem é o público, qual é o objetivo e o que quero que as pessoas sintam ao sair. A partir daí monto uma v1 do conceito, apresento pra quem solicitou, ajusto e começo a executar. Nos encontros de líderes isso significou pensar no tema, nas dinâmicas, no ritmo do dia e em como cada detalhe criava ou quebrava a experiência. Cuidei de tudo: identidade visual completa (KV, apresentações, convite, credencial, brindes), orçamentos, cronogramas, fornecedores, visitas técnicas e controle financeiro. No evento de dezembro, um fornecedor de coffee break falhou no dia. Resolvemos na hora com app de entrega. Não parou nada.
+            <span class="section-label">O que fiz</span>
+            Liderei tudo: a concepção do conceito, a curadoria das dinâmicas, o ritmo do dia, a identidade visual completa (KV, apresentações, convite, credencial e brindes), orçamentos, cronogramas, visitas técnicas, gestão de fornecedores e controle financeiro. O briefing começou sempre no mesmo lugar: quem são essas pessoas, o que elas precisam sentir ao sair e o que vai fazer esse dia valer a viagem.
           </p>
 
           <p class="project-desc">
-            <strong style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--red);font-weight:500;display:block;margin-bottom:4px;">Resultado</strong>
-            
-O formato mudou de um dia inteiro de apresentações para um encontro onde as pessoas realmente participaram, e isso apareceu nos números. Nas duas edições, 80 a 100 líderes por encontro, e na última, 47 avaliações espontâneas com nota média 9,8, onde dinâmica, conexão e leveza foram as palavras mais repetidas. Hoje as lideranças criam expectativa pelo próximo encontro, e num evento corporativo, isso diz mais do que qualquer métrica.
+            <span class="section-label">Resultado</span>
+            O formato mudou de um dia inteiro de apresentações para um encontro onde as pessoas realmente participaram. Na última edição, 47 avaliações espontâneas com nota média 9,8 — dinâmica, conexão e leveza foram as palavras mais repetidas. Hoje as lideranças criam expectativa pelo próximo encontro. Num evento corporativo, isso diz mais do que qualquer métrica.
           </p>
 
           <div class="deliverables">
+            <span class="del-tag">Conceito e estratégia</span>
             <span class="del-tag">Identidade visual</span>
             <span class="del-tag">KV</span>
-            <span class="del-tag">Convite &amp; credencial</span>
+            <span class="del-tag">Convite & credencial</span>
             <span class="del-tag">Brindes</span>
             <span class="del-tag">Curadoria de dinâmicas</span>
-            <span class="del-tag">Logística completa</span>
+            <span class="del-tag">Gestão de fornecedores</span>
             <span class="del-tag">Controle financeiro</span>
           </div>
 
           <p class="project-desc" style="margin-bottom:0.5rem;">
-            Cada edição tem um compilado completo, formato editorial, com fotos, dinâmicas e os momentos do dia. É a forma mais rápida de entender como o evento foi na prática.
+            Cada edição tem um compilado completo em formato editorial — com fotos, dinâmicas e os momentos do dia. É a forma mais rápida de entender como o evento foi na prática.
           </p>
 
           <div class="pdf-buttons">
@@ -1065,203 +1077,262 @@ O formato mudou de um dia inteiro de apresentações para um encontro onde as pe
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM8.5 17.5h-1v-5h1.8c1.1 0 1.7.6 1.7 1.5 0 1-.7 1.6-1.8 1.6H8.5v1.9zm0-2.8h.7c.5 0 .8-.3.8-.7 0-.5-.3-.7-.8-.7H8.5v1.4zm4.5 2.8h-1.3v-5H13c1.6 0 2.5 1 2.5 2.5s-.9 2.5-2.5 2.5zm-.3-4.1v3.3h.3c.9 0 1.4-.6 1.4-1.6 0-1.1-.5-1.7-1.4-1.7h-.3zm4.3 4.1h-1v-5h2.8v.9H17v1.2h1.6v.9H17v1.9-.9z"/></svg>
               </div>
               <div class="pdf-btn-label">
-                Ver compilado
-                <span>Junho 2025 · Batalha do conhecimento, telefone sem fio e compromissos individuais</span>
+                Ver compilado — Junho 2025
+                <span>Batalha do conhecimento, telefone sem fio e compromissos individuais</span>
               </div>
             </a>
-
             <a href="COMPILADO_ENCONTRO_DE_LIDERES_DEZ_2025_compressed.pdf" target="_blank" rel="noopener noreferrer" class="pdf-btn">
               <div class="pdf-icon">
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM8.5 17.5h-1v-5h1.8c1.1 0 1.7.6 1.7 1.5 0 1-.7 1.6-1.8 1.6H8.5v1.9zm0-2.8h.7c.5 0 .8-.3.8-.7 0-.5-.3-.7-.8-.7H8.5v1.4zm4.5 2.8h-1.3v-5H13c1.6 0 2.5 1 2.5 2.5s-.9 2.5-2.5 2.5zm-.3-4.1v3.3h.3c.9 0 1.4-.6 1.4-1.6 0-1.1-.5-1.7-1.4-1.7h-.3zm4.3 4.1h-1v-5h2.8v.9H17v1.2h1.6v.9H17v1.9-.9z"/></svg>
               </div>
               <div class="pdf-btn-label">
-                Ver compilado
-                <span>Dezembro 2025 · Celebração de fim de ciclo, reconhecimento entre líderes e um brinde a 2026</span>
+                Ver compilado — Dezembro 2025
+                <span>Celebração de fim de ciclo, reconhecimento entre líderes e um brinde a 2026</span>
+              </div>
+            </a>
+            <a href="https://www.linkedin.com/feed/update/urn:li:activity:7341552898765324288/" target="_blank" rel="noopener noreferrer" class="pdf-btn">
+              <div class="pdf-icon" style="background:var(--navy);">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" fill="white"/></svg>
+              </div>
+              <div class="pdf-btn-label">
+                Ver post — Junho 2026
+                <span>#SeleçãoNinecon · Copa do Mundo · a edição mais divertida até agora</span>
               </div>
             </a>
           </div>
+
+          <div class="project-media" style="margin-top:1.5rem;">
+            <div class="project-gallery-2">
+              <div class="media-frame">
+                <a href="encontro-lideres-foto-1.jpg" class="media-link lightbox-trigger">
+                  <img src="encontro-lideres-foto-1.jpg" alt="Foto do Encontro de Líderes" />
+                </a>
+              </div>
+              <div class="media-frame">
+                <a href="encontro-lideres-foto-2.jpg" class="media-link lightbox-trigger">
+                  <img src="encontro-lideres-foto-2.jpg" alt="Foto do Encontro de Líderes" />
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <!-- PROJETO 02 — FOTON -->
-        <div class="project-item reveal" style="transform:rotate(0.2deg);">
+        <!-- PROJETO 02 — ENDOMARKETING -->
+        <div class="project-item reveal" style="transform:rotate(-0.2deg);">
           <div class="project-number">02</div>
 
           <div class="project-meta">
-            <span class="project-tag" style="background:var(--navy);color:white;">Externo</span>
-            <span class="project-tag" style="background:rgba(244,180,0,0.08);color:var(--muted);border:1px solid rgba(90,42,42,0.1);">PDV · Lançamento</span>
-          </div>
-
-          <h3 class="project-title">Foton — Nova Tunland</h3>
-
-          <div class="project-challenge">
-            <strong>Ideia</strong>
-            A Nova Tunland tem um diferencial físico: ela é grande. O desafio era fazer a comunicação carregar isso sem precisar explicar.
-          </div>
-
-          <p class="project-desc">
-            <strong style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--red);font-weight:500;display:block;margin-bottom:4px;">Objetivo</strong>
-            Lançamento nacional com presença em mais de 30 concessionárias. A comunicação precisava ser consistente em todos os formatos e pontos de contato.
-          </p>
-
-          <p class="project-desc">
-            <strong style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--red);font-weight:500;display:block;margin-bottom:4px;">Processo</strong>
-            O briefing pedia presença. Tons escuros, estética densa, apelo aspiracional. Fui responsável pelo desdobramento visual das peças, do backdrop ao outdoor, garantindo que a marca lesse forte em qualquer formato.
-          </p>
-
-          <p class="project-desc">
-            <strong style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--red);font-weight:500;display:block;margin-bottom:4px;">Resultado</strong>
-            Campanha aplicada em mais de 30 concessionárias em todo o Brasil, com identidade visual coesa do espaço físico ao material impresso.
-          </p>
-
-          <div class="deliverables">
-            <span class="del-tag">Backdrop</span>
-            <span class="del-tag">Outdoor</span>
-            <span class="del-tag">Banners</span>
-            <span class="del-tag">Peças de concessionária</span>
-            <span class="del-tag">Campanha visual</span>
-          </div>
-
-          <div class="project-media">
-            <div class="media-frame hero">
-              <a href="foton-tunland-evento.png" class="media-link lightbox-trigger">
-                <img src="foton-tunland-evento.png" alt="Backdrop da campanha Nova Tunland em concessionária" />
-              </a>
-              <div class="media-caption">Aplicação principal da campanha no espaço de evento</div>
-            </div>
-
-            <div class="project-gallery-3">
-              <div class="media-frame">
-                <a href="foton-tunland-banner.png" class="media-link lightbox-trigger">
-                  <img src="foton-tunland-banner.png" alt="Banners verticais da campanha Nova Tunland" />
-                </a>
-                <div class="media-caption">Banners verticais</div>
-              </div>
-
-              <div class="media-frame">
-                <a href="foton-tunland-outdoor-1.png" class="media-link lightbox-trigger">
-                  <img src="foton-tunland-outdoor-1.png" alt="Outdoor da campanha Nova Tunland versão 1" />
-                </a>
-                <div class="media-caption">Outdoor 1</div>
-              </div>
-
-              <div class="media-frame">
-                <a href="foton-tunland-outdoor-2.png" class="media-link lightbox-trigger">
-                  <img src="foton-tunland-outdoor-2.png" alt="Outdoor da campanha Nova Tunland versão 2" />
-                </a>
-                <div class="media-caption">Outdoor 2</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- PROJETO 03 — NINECON ENDOMARKETING -->
-        <div class="project-item reveal" style="transform:rotate(-0.2deg);">
-          <div class="project-number">03</div>
-
-          <div class="project-meta">
             <span class="project-tag" style="background:var(--teal);color:white;">Interno</span>
-            <span class="project-tag" style="background:rgba(244,180,0,0.08);color:var(--muted);border:1px solid rgba(90,42,42,0.1);">Endomarketing</span>
+            <span class="project-tag" style="background:rgba(244,180,0,0.08);color:var(--muted);border:1px solid rgba(90,42,42,0.1);">Endomarketing · Cultura</span>
           </div>
 
-          <h3 class="project-title">Ninecon — Endomarketing</h3>
+          <h3 class="project-title">Endomarketing — Ninecon</h3>
 
           <div class="project-challenge">
-            <strong>Ideia</strong>
+            <strong>O ponto de partida</strong>
             A comunicação interna existia. O desafio era fazer ela parecer menos comunicado e mais conversa.
           </div>
 
           <p class="project-desc">
-            <strong style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--red);font-weight:500;display:block;margin-bottom:4px;">Objetivo</strong>
+            <span class="section-label">Objetivo</span>
             Criar campanhas internas que as pessoas realmente quisessem abrir — com personalidade, contexto e intenção, não só informação.
           </p>
 
           <p class="project-desc">
-            <strong style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--red);font-weight:500;display:block;margin-bottom:4px;">Processo</strong>
-            Atuei em desdobramentos visuais para programas internos, campanhas de cultura e presença institucional. Cada peça com contexto e intenção próprios, sem tratar tudo com o mesmo template.
+            <span class="section-label">O que fiz</span>
+            Planejei e executei campanhas internas temáticas — datas comemorativas, programas de cultura, iniciativas de desenvolvimento. Cada peça com contexto e intenção próprios, sem tratar tudo com o mesmo template. Criei o KV institucional que se tornou a identidade visual de toda a empresa: emails, apresentações e depois o site institucional.
           </p>
 
-          <p class="project-desc">
-            <strong style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--red);font-weight:500;display:block;margin-bottom:4px;">Resultado</strong>
-            Engajamento médio de 30% do público total nas campanhas internas. O novo KV virou base pra toda a comunicação da empresa: emails, apresentações e depois o site institucional.
-          </p>
+          <div class="metrics-row">
+            <div class="metric-box">
+              <span class="metric-value">30%</span>
+              <span class="metric-label">engajamento médio — cerca de 120 colaboradores por ação em uma base de 400</span>
+            </div>
+          </div>
 
           <div class="deliverables">
-            <span class="del-tag">Programas internos</span>
-            <span class="del-tag">Campanhas de cultura</span>
-            <span class="del-tag">Peças institucionais</span>
+            <span class="del-tag">Campanhas internas</span>
+            <span class="del-tag">Programas de cultura</span>
             <span class="del-tag">Email marketing interno</span>
             <span class="del-tag">KV institucional</span>
+            <span class="del-tag">Peças institucionais</span>
           </div>
 
           <div class="project-media">
-            <div class="project-gallery-4">
+            <div class="project-gallery-3">
               <div class="media-frame">
                 <a href="ninecon-aprender.png" class="media-link lightbox-trigger">
-                  <img src="ninecon-aprender.png" alt="Peça do programa Aprender e Ensinar da Ninecon" />
+                  <img src="ninecon-aprender.png" alt="Programa Aprender e Ensinar" />
                 </a>
                 <div class="media-caption">Programa aprender e ensinar</div>
               </div>
-
               <div class="media-frame">
                 <a href="ninecon-lideranca.png" class="media-link lightbox-trigger">
-                  <img src="ninecon-lideranca.png" alt="Peça do programa de líderes da Ninecon" />
+                  <img src="ninecon-lideranca.png" alt="Programa de líderes" />
                 </a>
                 <div class="media-caption">Programa de líderes</div>
               </div>
-
               <div class="media-frame">
                 <a href="ninecon-criancas.png" class="media-link lightbox-trigger">
-                  <img src="ninecon-criancas.png" alt="Campanha Pequenos Artistas Ninecon" />
+                  <img src="ninecon-criancas.png" alt="Campanha afetiva" />
                 </a>
-                <div class="media-caption">Campanha com linguagem afetiva e humanizada</div>
+                <div class="media-caption">Campanha com linguagem afetiva</div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- PROJETO 04 — NINECON INSTAGRAM -->
+        <!-- PROJETO 03 — VOZES DA NINECON -->
         <div class="project-item reveal" style="transform:rotate(0.2deg);">
+          <div class="project-number">03</div>
+
+          <div class="project-meta">
+            <span class="project-tag" style="background:var(--navy);color:white;">Employer Branding</span>
+            <span class="project-tag" style="background:rgba(244,180,0,0.08);color:var(--muted);border:1px solid rgba(90,42,42,0.1);">Podcast · Cultura</span>
+          </div>
+
+          <h3 class="project-title">Vozes da Ninecon — Podcast</h3>
+
+          <div class="project-challenge">
+            <strong>O ponto de partida</strong>
+            Como dar voz a quem faz a empresa acontecer, fortalecer cultura e ainda abrir isso pro mundo — tudo ao mesmo tempo?
+          </div>
+
+          <p class="project-desc">
+            <span class="section-label">Objetivo</span>
+            Criar um espaço de diálogo real entre as áreas da Ninecon — onde colaboradores pudessem falar sobre seus projetos, aprendizados e perspectivas. Com alcance externo via YouTube, o podcast também funciona como ferramenta de marca empregadora: mostra quem a Ninecon é por dentro.
+          </p>
+
+          <p class="project-desc">
+            <span class="section-label">O que fiz</span>
+            Criei o podcast do zero e cuidei de tudo: conceito, pauta, acompanhamento no dia de gravação, edição, divulgação em redes sociais e publicação no blog e YouTube. O formato é simples e humano — um diretor convida representantes de uma área por vez para uma conversa aberta. Já passaram por aqui Comercial, Serviços Gerenciados e Projetos.
+          </p>
+
+          <div class="metrics-row">
+            <div class="metric-box">
+              <span class="metric-value">3</span>
+              <span class="metric-label">episódios publicados</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-value">578</span>
+              <span class="metric-label">visualizações totais</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-value">3</span>
+              <span class="metric-label">áreas representadas</span>
+            </div>
+          </div>
+
+          <div class="deliverables">
+            <span class="del-tag">Conceito e formato</span>
+            <span class="del-tag">Pauta e roteiro</span>
+            <span class="del-tag">Produção e gravação</span>
+            <span class="del-tag">Edição</span>
+            <span class="del-tag">Divulgação em redes</span>
+            <span class="del-tag">Publicação no blog</span>
+            <span class="del-tag">YouTube</span>
+          </div>
+
+          <div class="podcast-episodes">
+            <a href="https://www.ninecon.com.br/podcast-vozes-da-ninecon-01/" target="_blank" rel="noopener noreferrer" class="podcast-ep">
+              <img src="vozes-ep1-thumb.jpg" alt="Episódio 1 — Vozes da Ninecon" class="podcast-thumb" />
+              <div class="podcast-ep-info">
+                <div class="podcast-ep-title">Ep. 01 — Vozes da Ninecon</div>
+                <div class="podcast-ep-meta">Primeira edição do podcast · ninecon.com.br</div>
+              </div>
+              <span class="podcast-ep-views">393 visualizações</span>
+            </a>
+            <a href="https://www.ninecon.com.br/vozes-da-ninecon-servicos-gerenciados-suporte/" target="_blank" rel="noopener noreferrer" class="podcast-ep">
+              <img src="vozes-ep2-thumb.jpg" alt="Episódio 2 — Serviços Gerenciados" class="podcast-thumb" />
+              <div class="podcast-ep-info">
+                <div class="podcast-ep-title">Ep. 02 — Serviços Gerenciados & Suporte</div>
+                <div class="podcast-ep-meta">Bastidores da área de suporte · ninecon.com.br</div>
+              </div>
+              <span class="podcast-ep-views">129 visualizações</span>
+            </a>
+            <a href="https://www.ninecon.com.br/vozesdaninecon-episodio3-bastidorescomercial/" target="_blank" rel="noopener noreferrer" class="podcast-ep">
+              <img src="vozes-ep3-thumb.jpg" alt="Episódio 3 — Bastidores Comercial" class="podcast-thumb" />
+              <div class="podcast-ep-info">
+                <div class="podcast-ep-title">Ep. 03 — Bastidores do Comercial</div>
+                <div class="podcast-ep-meta">A área comercial por dentro · ninecon.com.br</div>
+              </div>
+              <span class="podcast-ep-views">56 visualizações</span>
+            </a>
+          </div>
+
+          <div class="project-media" style="margin-top:1rem;">
+            <div class="project-gallery-2">
+              <div class="media-frame">
+                <a href="vozes-gravacao-1.jpg" class="media-link lightbox-trigger">
+                  <img src="vozes-gravacao-1.jpg" alt="Bastidores da gravação — Vozes da Ninecon" />
+                </a>
+                <div class="media-caption">Bastidores da gravação</div>
+              </div>
+              <div class="media-frame">
+                <a href="vozes-gravacao-2.jpg" class="media-link lightbox-trigger">
+                  <img src="vozes-gravacao-2.jpg" alt="Bastidores da gravação — Vozes da Ninecon" />
+                </a>
+                <div class="media-caption">No ar</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJETO 04 — INSTAGRAM & REDES -->
+        <div class="project-item reveal" style="transform:rotate(-0.2deg);">
           <div class="project-number">04</div>
 
           <div class="project-meta">
-            <span class="project-tag" style="background:var(--red);color:white;">Externo</span>
+            <span class="project-tag" style="background:var(--red);color:white;">Digital</span>
             <span class="project-tag" style="background:rgba(244,180,0,0.08);color:var(--muted);border:1px solid rgba(90,42,42,0.1);">Redes Sociais · Branding</span>
           </div>
 
-          <h3 class="project-title">Ninecon — Instagram & Redes Sociais</h3>
+          <h3 class="project-title">Redes Sociais — Ninecon</h3>
 
           <div class="project-challenge">
-            <strong>Ideia</strong>
-             A comunicação da Ninecon ainda não transmitia a empresa que ela já era. Faltava proximidade, personalidade e uma presença digital que mostrasse as pessoas e a cultura por trás da marca.
+            <strong>O ponto de partida</strong>
+            A comunicação da Ninecon ainda não transmitia a empresa que ela já era. Faltava proximidade, personalidade e uma presença digital que mostrasse as pessoas e a cultura por trás da marca.
           </div>
 
           <p class="project-desc">
-            <strong style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--red);font-weight:500;display:block;margin-bottom:4px;">Objetivo</strong>
-            Reposicionar visualmente as redes sociais da Ninecon, criando uma comunicação mais humana, estratégica e consistente, capaz de fortalecer a marca e aproximar a empresa das pessoas.
+            <span class="section-label">Objetivo</span>
+            Reposicionar as redes sociais da Ninecon — criando uma comunicação mais humana, estratégica e consistente, capaz de fortalecer a marca e aproximar a empresa das pessoas.
           </p>
 
           <p class="project-desc">
-            <strong style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--red);font-weight:500;display:block;margin-bottom:4px;">Processo</strong>
-            Assumi as redes em outubro de 2024 e comecei o processo de transição visual em março de 2025. Em junho o feed já tinha uma cara completamente diferente: mais cores, mais pessoas reais, linguagem mais próxima. Cuidei de planejamento, criação de conteúdo e monitoramento de desempenho no Instagram, YouTube e LinkedIn.
+            <span class="section-label">O que fiz</span>
+            Assumi as redes em outubro de 2024 e iniciei o processo de transição visual em março de 2025. Mudei o tom de voz, humanizei o conteúdo, aumentei a frequência de publicações e criei uma nova identidade visual para o feed. Ao longo de 2025, foram 213 posts no feed, 35 Reels e 420 Stories — com consistência e intenção em cada peça. Cuidei do planejamento, criação, monitoramento e análise de desempenho no Instagram, LinkedIn e YouTube.
           </p>
 
-          <p class="project-desc">
-            <strong style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--red);font-weight:500;display:block;margin-bottom:4px;">Resultado</strong>
-            +61% em seguidores (de 707 para 1.142), +165% no alcance único diário e +122% no volume de publicações. Além dos números, a identidade visual ficou mais madura e consistente, com mais presença humana e institucional, linguagem B2B mais próxima e especializada — e o novo KV virou referência visual pra toda a empresa.
-          </p>
+          <div class="metrics-row">
+            <div class="metric-box">
+              <span class="metric-value">700→1.170</span>
+              <span class="metric-label">seguidores Instagram</span>
+              <span class="metric-delta">+67%</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-value">25k→30k</span>
+              <span class="metric-label">seguidores LinkedIn</span>
+              <span class="metric-delta">+20%</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-value">175k</span>
+              <span class="metric-label">visualizações totais em 2025</span>
+            </div>
+          </div>
 
           <div class="deliverables">
             <span class="del-tag">Instagram</span>
             <span class="del-tag">LinkedIn</span>
             <span class="del-tag">YouTube</span>
-            <span class="del-tag">KV de redes</span>
             <span class="del-tag">Planejamento editorial</span>
+            <span class="del-tag">KV de redes</span>
+            <span class="del-tag">Criação de conteúdo</span>
+            <span class="del-tag">Análise de performance</span>
           </div>
 
-          <!-- ANTES E DEPOIS -->
           <div style="margin-top:1.5rem;">
-            <p style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--red);font-weight:500;margin-bottom:1rem;">Evolução do feed</p>
-
+            <p class="section-label" style="margin-bottom:1rem;">Evolução do feed</p>
             <div class="insta-compare">
               <div class="insta-screen">
                 <div class="insta-screen-label" style="color:var(--muted);">
@@ -1269,7 +1340,7 @@ O formato mudou de um dia inteiro de apresentações para um encontro onde as pe
                   Antes — Out 2024
                 </div>
                 <a href="ninecon-instagram-antes.png" class="lightbox-trigger">
-                  <img src="ninecon-instagram-antes.png" alt="Instagram da Ninecon antes da reformulação" />
+                  <img src="ninecon-instagram-antes.png" alt="Instagram antes" />
                 </a>
               </div>
               <div class="insta-screen">
@@ -1278,15 +1349,14 @@ O formato mudou de um dia inteiro de apresentações para um encontro onde as pe
                   Depois — Atualmente
                 </div>
                 <a href="ninecon-instagram-depois.png" class="lightbox-trigger">
-                  <img src="ninecon-instagram-depois.png" alt="Instagram da Ninecon após reformulação" />
+                  <img src="ninecon-instagram-depois.png" alt="Instagram depois" />
                 </a>
               </div>
             </div>
-
           </div>
         </div>
 
-        <!-- PROJETO 05 — CLG -->
+        <!-- PROJETO 05 — THOUGHT LEADERSHIP -->
         <div class="project-item reveal" style="transform:rotate(0.2deg);">
           <div class="project-number">05</div>
 
@@ -1298,60 +1368,136 @@ O formato mudou de um dia inteiro de apresentações para um encontro onde as pe
           <h3 class="project-title">Ninecon — Thought Leadership</h3>
 
           <div class="project-challenge">
-            <strong>Ideia</strong>
-            A Ninecon queria ampliar o alcance em nichos estratégicos usando os próprios executivos como canal.
+            <strong>O ponto de partida</strong>
+            A Ninecon queria ampliar o alcance em nichos estratégicos usando os próprios executivos como canal. O desafio era construir autoridade real — não só presença.
           </div>
 
           <p class="project-desc">
-            <strong style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--red);font-weight:500;display:block;margin-bottom:4px;">Objetivo</strong>
-            Construir autoridade digital de diretores e líderes comerciais em agro, tech e varejo, gerando reconhecimento de marca por outros caminhos.
+            <span class="section-label">Objetivo</span>
+            Construir autoridade digital de diretores e líderes comerciais em agro, tech e varejo — gerando reconhecimento de marca por outros caminhos e fortalecendo o posicionamento da Ninecon nos segmentos que mais importam para o negócio.
           </p>
 
           <p class="project-desc">
-            <strong style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--red);font-weight:500;display:block;margin-bottom:4px;">Processo</strong>
-            Cuidei da criação dos calendários editoriais, produção de vídeos e adaptação de linguagem pra cada perfil e nicho. Na prática, o perfil que mais evoluiu foi o do Bruno — com mais consistência, engajamento real e até convites para eventos.
+            <span class="section-label">O que fiz</span>
+            Liderei a estratégia e criação de conteúdo para 4 perfis executivos no LinkedIn e Instagram, trabalhando com agência parceira sob minha direção. Cuidei dos calendários editoriais, adaptação de linguagem para cada perfil e nicho, produção de vídeos e acompanhamento de performance mensal. Cada perfil tem identidade e linha editorial próprias — nada de template replicado.
           </p>
 
+          <div class="metrics-row">
+            <div class="metric-box">
+              <span class="metric-value">+68,3%</span>
+              <span class="metric-label">crescimento na taxa de engajamento (Out–Dez/25 vs Jan–Mar/26)</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-value">4</span>
+              <span class="metric-label">executivos posicionados</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-value">+3,49 p.p.</span>
+              <span class="metric-label">maior evolução individual de engajamento</span>
+            </div>
+          </div>
+
           <p class="project-desc">
-            <strong style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--red);font-weight:500;display:block;margin-bottom:4px;">Resultado</strong>
-            Perfis com identidade visual e linha editorial próprias. Bruno se consolidou como referência no seu nicho, com crescimento de engajamento e reconhecimento fora da empresa.
+            <span class="section-label">Impacto para o negócio</span>
+            Conteúdos de autoridade sobre temas estratégicos — como reforma tributária — são usados pelo time comercial como ferramenta de relacionamento com clientes. Um dos executivos foi convidado para participar do Google Cloud Next 2026 em Las Vegas e para um almoço com o IT Forum: reconhecimento direto de mercado gerado pelo posicionamento digital construído ao longo do projeto.
+          </p>
+
+          <p class="project-desc" style="font-size:0.82rem;color:var(--muted);margin-bottom:1rem;">
+            Evolução por executivo — taxa de engajamento Out–Dez/25 → Jan–Mar/26: Cris 3,52% → 7,01% · Lucas 4,16% → 7,07% · André 3,60% → 5,37% · Bruno 4,09% → 6,11%
           </p>
 
           <div class="deliverables">
-            <span class="del-tag">Calendário editorial</span>
+            <span class="del-tag">Estratégia editorial</span>
+            <span class="del-tag">Calendário de conteúdo</span>
             <span class="del-tag">Produção de vídeos</span>
             <span class="del-tag">Identidade por perfil</span>
-            <span class="del-tag">Estratégia de conteúdo</span>
+            <span class="del-tag">Direção de agência</span>
+            <span class="del-tag">Análise de performance</span>
           </div>
 
           <div class="project-media">
-            <div class="clg-grid">
+            <div class="project-gallery-2">
               <div class="media-frame">
                 <a href="clg-bruno.jpeg" class="media-link lightbox-trigger">
-                  <img src="clg-bruno.jpeg" alt="Perfil e grid de conteúdo de Bruno Viscaino" />
+                  <img src="clg-bruno.jpeg" alt="Perfil Bruno Viscaino" />
                 </a>
                 <div class="media-caption">Bruno Viscaino</div>
               </div>
-
               <div class="media-frame">
                 <a href="clg-lucas.png" class="media-link lightbox-trigger">
-                  <img src="clg-lucas.png" alt="Perfil e grid de conteúdo de Lucas Andrade Ferreira" />
+                  <img src="clg-lucas.png" alt="Perfil Lucas Andrade Ferreira" />
                 </a>
                 <div class="media-caption">Lucas Andrade Ferreira</div>
               </div>
-
               <div class="media-frame">
                 <a href="clg-ana.jpeg" class="media-link lightbox-trigger">
-                  <img src="clg-ana.jpeg" alt="Perfil e grid de conteúdo de Ana Cristina Backer" />
+                  <img src="clg-ana.jpeg" alt="Perfil Ana Cristina Backer" />
                 </a>
                 <div class="media-caption">Ana Cristina Backer</div>
               </div>
-
               <div class="media-frame">
                 <a href="clg-assad.jpeg" class="media-link lightbox-trigger">
-                  <img src="clg-assad.jpeg" alt="Perfil e grid de conteúdo de Andre Assad" />
+                  <img src="clg-assad.jpeg" alt="Perfil Andre Assad" />
                 </a>
                 <div class="media-caption">Andre Assad</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJETO 06 — FOTON (FREELA / DESIGN) -->
+        <div class="project-item reveal" style="transform:rotate(-0.2deg);">
+          <div class="project-number">06</div>
+
+          <div class="project-meta">
+            <span class="project-tag" style="background:var(--blue);color:var(--navy);">Design</span>
+            <span class="project-tag" style="background:rgba(244,180,0,0.08);color:var(--muted);border:1px solid rgba(90,42,42,0.1);">PDV</span>
+          </div>
+
+          <h3 class="project-title">Foton — Nova Tunland</h3>
+
+          <div class="project-challenge">
+            <strong>O briefing</strong>
+            A Nova Tunland tem um diferencial físico: ela é grande. O desafio era fazer a comunicação carregar isso sem precisar explicar.
+          </div>
+
+          <p class="project-desc">
+            <span class="section-label">O que fiz</span>
+            Lançamento nacional com presença em mais de 30 concessionárias. Fui responsável pelo desdobramento visual das peças — do backdrop ao outdoor — garantindo que a marca lesse forte em qualquer formato. Tons escuros, estética densa, apelo aspiracional.
+          </p>
+
+          <div class="deliverables">
+            <span class="del-tag">Backdrop</span>
+            <span class="del-tag">Outdoor</span>
+            <span class="del-tag">Banners</span>
+            <span class="del-tag">Peças de concessionária</span>
+          </div>
+
+          <div class="project-media">
+            <div class="media-frame hero">
+              <a href="foton-tunland-evento.png" class="media-link lightbox-trigger">
+                <img src="foton-tunland-evento.png" alt="Backdrop Nova Tunland" />
+              </a>
+              <div class="media-caption">Aplicação principal — espaço de evento</div>
+            </div>
+            <div class="project-gallery-3">
+              <div class="media-frame">
+                <a href="foton-tunland-banner.png" class="media-link lightbox-trigger">
+                  <img src="foton-tunland-banner.png" alt="Banners Nova Tunland" />
+                </a>
+                <div class="media-caption">Banners verticais</div>
+              </div>
+              <div class="media-frame">
+                <a href="foton-tunland-outdoor-1.png" class="media-link lightbox-trigger">
+                  <img src="foton-tunland-outdoor-1.png" alt="Outdoor 1" />
+                </a>
+                <div class="media-caption">Outdoor 1</div>
+              </div>
+              <div class="media-frame">
+                <a href="foton-tunland-outdoor-2.png" class="media-link lightbox-trigger">
+                  <img src="foton-tunland-outdoor-2.png" alt="Outdoor 2" />
+                </a>
+                <div class="media-caption">Outdoor 2</div>
               </div>
             </div>
           </div>
@@ -1381,12 +1527,9 @@ O formato mudou de um dia inteiro de apresentações para um encontro onde as pe
             <span>E-mail</span>
             <a href="mailto:Lima.mariana.2001@gmail.com">Lima.mariana.2001@gmail.com</a>
           </div>
-
           <div class="contact-item">
             <span>LinkedIn</span>
-            <a href="https://www.linkedin.com/in/mariana-lima-de-lira/" target="_blank" rel="noopener noreferrer">
-              linkedin.com/in/mariana-lima-de-lira
-            </a>
+            <a href="https://www.linkedin.com/in/mariana-lima-de-lira/" target="_blank" rel="noopener noreferrer">linkedin.com/in/mariana-lima-de-lira</a>
           </div>
         </div>
       </section>
@@ -1396,7 +1539,7 @@ O formato mudou de um dia inteiro de apresentações para um encontro onde as pe
 
   <div class="lightbox" id="lightbox">
     <div class="lightbox-content">
-      <button class="lightbox-close" id="lightboxClose" aria-label="Fechar imagem">×</button>
+      <button class="lightbox-close" id="lightboxClose" aria-label="Fechar">×</button>
       <img class="lightbox-img" id="lightboxImg" src="" alt="" />
     </div>
   </div>
@@ -1413,13 +1556,12 @@ O formato mudou de um dia inteiro de apresentações para um encontro onde as pe
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightboxImg');
     const lightboxClose = document.getElementById('lightboxClose');
-    const triggers = document.querySelectorAll('.lightbox-trigger');
 
-    triggers.forEach((trigger) => {
+    document.querySelectorAll('.lightbox-trigger').forEach((trigger) => {
       trigger.addEventListener('click', (e) => {
         e.preventDefault();
         const img = trigger.querySelector('img');
-        lightboxImg.src = trigger.getAttribute('href');
+        lightboxImg.src = trigger.getAttribute('href') || trigger.closest('a')?.getAttribute('href') || '';
         lightboxImg.alt = img ? img.alt : '';
         lightbox.classList.add('active');
         document.body.style.overflow = 'hidden';
@@ -1434,7 +1576,7 @@ O formato mudou de um dia inteiro de apresentações para um encontro onde as pe
 
     lightboxClose.addEventListener('click', closeLightbox);
     lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
   </script>
 
 </body>
